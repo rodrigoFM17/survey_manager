@@ -21,10 +21,20 @@ export default function InputQuestion({nPregunta, type, textPlaceholder, text}){
             return (
                 <>
                     <label className="LabelInput" htmlFor={`${'closed'+ nPregunta || ''}`}>{text}</label>
-                    <input className="InputQuestionNumber" type={`${type}`} id={`closed${nPregunta}`} min={2} max={10}/>
+                    <input className="InputQuestionNumber" type={`${type}`} id={`question${nPregunta}`} min={2} max={10}/>
 
             </>
             )
+
+        case 'text':
+            return(
+                <>
+                    <label className="LabelInput" htmlFor={`question${nPregunta}`}>{text || "ingrese la pregunta "+ nPregunta}</label>
+                    <input className="InputQuestion" type={type} id={`question${nPregunta}`} placeholder={`${textPlaceholder || ""}`}/>
+                </>
+            )
+
+            break;
 
         default:
             return (

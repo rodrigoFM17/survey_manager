@@ -10,6 +10,16 @@ input[type="radio"][value="opcion multiple"]:checked{
     transform: scale(1.5);
   }
 
+  button{
+    background-color: #0B376C;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: .5vmax;
+    font-size: 1.5vmax;
+    padding: 1vmax;
+  }
+
   .CloseQuestion{
     display: flex;
     flex-direction: column;
@@ -17,8 +27,9 @@ input[type="radio"][value="opcion multiple"]:checked{
     }  
 
   .CloseQuestion button{
-    height: 2vmax;
-    padding: 0 1vmax;
+    background-color: #4082D4;
+    height: 100%;
+    padding: .5vmax;
     margin: 0 0 0 1vmax;
     font-size: 1.5vmax;
 

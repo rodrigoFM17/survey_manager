@@ -37,6 +37,7 @@ body{
 
 }
 
+
 .InputQuestion, .InputQuestionNumber{
   border-radius: .5vmax;
   padding: .5vmax;
@@ -47,6 +48,14 @@ body{
 .InputQuestionNumber{
   width: 30%;
   margin: 0 0 0 1vmax;
+}
+
+.ContainerButtons{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .LabelInput{
@@ -65,10 +74,10 @@ margin: 0 1vmax 0 0;
   color: white;
 }
 
+
 .PlusButton{
   background-color: #0B376C;
   color: white;
-  margin: 5% auto;
   width: 10vmax;
   height: 10vmax;
   border-radius: 5vmax;

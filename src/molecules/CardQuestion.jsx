@@ -16,8 +16,6 @@ export default function CardQuestion({nPregunta, text}){
             <InputQuestion type={"radio"} text={'opcion multiple'} nPregunta={nPregunta}/>
             <CloseQuestion nPregunta={nPregunta} />
             
-            
-            
         </fieldset>
     )
 }
