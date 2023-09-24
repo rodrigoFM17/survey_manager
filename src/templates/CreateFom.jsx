@@ -8,28 +8,37 @@ import QuestionContext from '../context/QuestionContext'
 
 export default function CreateForm(){
 
-    const [question, setQuestion] = useState([1,2,3])
+    const [question, setQuestion] = useState([1])
 
     const addQuestion = () => {
-        alert('negro')
-        let aux2 = question
         let aux = question[question.length - 1] + 1
-        
-        aux2.push(aux)
-        console.log(aux2)
-        setQuestion(aux2) 
-        
+        question.push(aux)
+        setQuestion([...question]) 
     }
 
     
+
+    
+    const createForm =() =>{
+
+        let questions = []
+
+        const question1 = document.querySelector('input[name="1":checked').value
+
+    }
+    
+
+    
     return(
-        <>
+        <form className="CreateForm">
         <Title />
         {
         question.map(pregunta => <CardQuestion nPregunta={pregunta} key={pregunta}/> 
                                     
         )}
-        <button onClick={ () => {addQuestion()}}>agregar</button>
-        </>
+        <button type="button" className="PlusButton" onClick={ () => {addQuestion()}}>+</button>
+        <br /><br /><br />
+        <button type="submit">crear formulario</button>
+        </form>
     )
 }

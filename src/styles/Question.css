@@ -1,4 +1,25 @@
-input:checked + label{
-    background-color: aqua;
+input[type="radio"][value="opcion multiple"]:checked{
+    
+    .CloseQuestion{
+        display: none;
+    }
   
+  }
+
+  input[type='radio']{
+    transform: scale(1.5);
+  }
+
+  .CloseQuestion{
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+    }  
+
+  .CloseQuestion button{
+    height: 2vmax;
+    padding: 0 1vmax;
+    margin: 0 0 0 1vmax;
+    font-size: 1.5vmax;
+
   }

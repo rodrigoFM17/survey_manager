@@ -8,7 +8,7 @@ export default function InputQuestion({nPregunta, type, textPlaceholder, text}){
             return(
             <>
                 <label className="LabelInput" htmlFor={`${text + nPregunta || ''}`}>
-                    <input className="RadioQuestion" name={nPregunta} value={text} type={`${type}`} id={`${text + nPregunta || ''}`}/>
+                    <input className="RadioQuestion" name={`${nPregunta}`} value={text} type={`${type}`} id={`${text + nPregunta || ''}`}/>
                     {text || "ingrese la pregunta "+ nPregunta}
                     
                 </label>
@@ -16,6 +16,15 @@ export default function InputQuestion({nPregunta, type, textPlaceholder, text}){
             </>
             )
             break;
+
+        case 'number':
+            return (
+                <>
+                    <label className="LabelInput" htmlFor={`${'closed'+ nPregunta || ''}`}>{text}</label>
+                    <input className="InputQuestionNumber" type={`${type}`} id={`closed${nPregunta}`} min={2} max={10}/>
+
+            </>
+            )
 
         default:
             return (

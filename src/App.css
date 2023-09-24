@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+
 .App{
   display: flex;
   flex-direction: column;
@@ -16,6 +17,8 @@ body{
 }
 
 .CardQuestion{
+  border-radius: 2vmax;
+  border: none;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -27,11 +30,23 @@ body{
   font-size: 1.5vmax;
 }
 
-.InputQuestion{
+.CreateForm{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.InputQuestion, .InputQuestionNumber{
   border-radius: .5vmax;
   padding: .5vmax;
   width: 100%;
   font-size: 1.5vmax;
+}
+
+.InputQuestionNumber{
+  width: 30%;
+  margin: 0 0 0 1vmax;
 }
 
 .LabelInput{
@@ -45,9 +60,6 @@ margin: 0 1vmax 0 0;
 
 }
 
-.RadioQuestion input[type=radio]:checked{
-  
-}
 
 .Title, .TitleQuestion{
   color: white;
