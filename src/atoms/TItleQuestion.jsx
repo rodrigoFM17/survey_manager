@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function TitleQuestion({nPregunta, text}){
+export default function TitleQuestion({text}){
     return(
-        <h3 className="TitleQuestion">{`${text}`}</h3>
+        <h3 className="TitleQuestion">{text}</h3>
     )
 }

@@ -1,15 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import Title from "../atoms/Title";
-import CardQuestion from "../molecules/CardQuestion";
-import PlusButton from "../atoms/Button";
+import CardQuestion from "../organisms/CardQuestion";
+import { navigate } from 'wouter/use-location'
 import { useState } from "react";
-import QuestionContext from '../context/QuestionContext'
+import QuestionContext from "../context/QuestionContext";
+
+
 
 
 export default function CreateForm(){
 
     const [question, setQuestion] = useState([1])
-    const {questions, setQuestions} = useContext(QuestionContext)
+    const {formQuestions, setQuestions} = useContext(QuestionContext)
 
     const addQuestion = () => {
         let aux = question[question.length - 1] + 1
@@ -20,16 +22,12 @@ export default function CreateForm(){
     
 
     
-    const createNewForm =() =>{
-
+    const createNewForm =(e) =>{
+        e.preventDefault()
         const titleSurvey = document.querySelector('#questiontitleSurvey').value
-        alert(titleSurvey)
-        const questionsToMade = []
         const formQuestion = document.querySelectorAll('input[type="radio"]:checked')
-       
-        
-
-        questionsToMade.push(titleSurvey)
+        formQuestions.questions = []
+        formQuestions.title = titleSurvey
 
         for (let i=0; i < formQuestion.length; i++) { 
 
@@ -37,26 +35,26 @@ export default function CreateForm(){
             const currentQuestion = formQuestion[i]
             const titleQuestion = document.querySelector(`#question${i+1}`).value
             auxQuestion.question = titleQuestion
+            auxQuestion.numberQuestion = i + 1 
           
 
             switch(currentQuestion.value){
                 case 'abierta':
                     auxQuestion.type = "text"
                     break;
-                case 'numerica':
+                case 'numerico':
                     auxQuestion.type= "number"
-                    
                     break;
 
                 case 'opcion multiple':
                     auxQuestion.type = 'radio'
-                    auxQuestion.ClosedOptions = []
+                    auxQuestion.closedOptions = []
 
-                    const numberClosed = document.querySelector(`#question1NumberClosed`).value
+                    const numberClosed = document.querySelector(`#question${i+1}NumberClosed`).value
 
                     for (let i=1; i <= numberClosed; i++){ 
                         const closedOne = document.querySelector(`#question${i}ClosedOne`).value
-                        auxQuestion.ClosedOptions.push(closedOne)
+                        auxQuestion.closedOptions.push(closedOne)
                     }
                     break;
                 default:
@@ -64,20 +62,22 @@ export default function CreateForm(){
                 break;                    
             }
 
-            questionsToMade.push(auxQuestion)
+            formQuestions.questions.push(auxQuestion)
         }
-
-
         
-        console.log(questionsToMade)
-        alert(questionsToMade)
+        setQuestions(formQuestions)
+        console.log(formQuestions)
+        navigate('/Form')
     }
     
-
     
     return(
-        <form className="CreateForm" onSubmit={ () => createNewForm()}>
-        <Title />
+        <form className="CreateForm" onSubmit={createNewForm}>
+        <header>
+            <Title />
+        </header>
+        
+        
         {
         question.map(pregunta => <CardQuestion nPregunta={pregunta} key={pregunta}/> 
                                     

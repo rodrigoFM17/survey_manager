@@ -30,7 +30,7 @@ body{
   font-size: 1.5vmax;
 }
 
-.CreateForm{
+.CreateForm, .MadeForm{
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -72,6 +72,11 @@ margin: 0 1vmax 0 0;
 
 .Title, .TitleQuestion{
   color: white;
+}
+
+.Title {
+  margin: 5vmax 0 0 0 ;
+  text-align: center;
 }
 
 

@@ -1,22 +1,25 @@
 import logo from './logo.svg';
+import { Route } from 'wouter';
 import './App.css';
-import Title from './atoms/Title';
-import CardQuestion from './molecules/CardQuestion';
-import PlusButton from './atoms/Button';
 import CreateForm from './templates/CreateFom';
 import { QuestionContextProvider } from './context/QuestionContext';
+import MadeForm from './templates/MadeForm';
 
 
 function App() {
   return (
-    <div className="App">
-      <QuestionContextProvider>
-        <CreateForm/>
-      </QuestionContextProvider>
-        
+    <QuestionContextProvider>
       
-      
-    </div>
+      <Route 
+      component={CreateForm}
+      path='/'
+      />
+      <Route
+      component={MadeForm} 
+      path='/Form'
+      />
+    </QuestionContextProvider>
+    
   );
 }
 
